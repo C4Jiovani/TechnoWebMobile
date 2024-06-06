@@ -1,18 +1,20 @@
-import * as React from 'react';
-import { Provider as PaperProvider, Button } from 'react-native-paper';
-import { View, Text } from 'react-native';
+import * as React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import accueil from './views/accueil.js'
+import test from './views/test.js'
 
-const App = () => {
-  return (
-    <PaperProvider>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Hello, world!</Text>
-        <Button icon="instagram" mode="contained" onPress={() => alert('hello')}>
-          Press me
-        </Button>
-      </View>
-    </PaperProvider>
-  );
-};
+const Stack = createStackNavigator()
+
+const App = () =>{
+  return(
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='accueil' component={accueil} />
+        <Stack.Screen name='test' component={test} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
 export default App;
