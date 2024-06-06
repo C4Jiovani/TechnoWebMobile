@@ -1,18 +1,40 @@
-import * as React from 'react';
-import { Provider as PaperProvider, Button } from 'react-native-paper';
-import { View, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { TextInput } from 'react-native-paper';
 
-const App = () => {
+export default function App() {
   return (
-    <PaperProvider>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Hello, world!</Text>
-        <Button icon="instagram" mode="contained" onPress={() => alert('hello')}>
-          Press me
-        </Button>
-      </View>
-    </PaperProvider>
+    <View style={styles.container}>
+      <Text style={styles.text}>Olty ehhhh!!!!!</Text>
+      <TextInput
+       style={styles.input}
+      />
+      <Button
+        title='Reserver'
+        color="green"
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />
+      <StatusBar style="auto" />
+    </View>
+    
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    color: 'white',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    width: 250,
+    borderWidth: 1,
+    padding: 5,
+  },
+});
